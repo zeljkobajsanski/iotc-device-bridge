@@ -14,7 +14,7 @@
     },
     "variables": {
         "planName": "[concat('plan-', parameters('appName'))]",
-        "storageName": "[concat('st', 'bitseverywhere', parameters('appName'))]",
+        "storageName": "[concat('st', 'bits', parameters('appName'))]",
         "functionAppName": "[concat('func-', 'bitseverywhere-', parameters('appName'), '-bridge')]",
         "keyVaultName": "[concat('kv-', 'bitseverywhere-', parameters('appName'))]",
         "iotcKeyName": "iotckey"
