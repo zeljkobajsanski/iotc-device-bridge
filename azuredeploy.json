@@ -13,10 +13,10 @@
         }
     },
     "variables": {
-        "planName": "[concat('plan-', parameters('appName'))]",
+        "planName": "[concat('plan-bits-', parameters('appName'))]",
         "storageName": "[concat('st', 'bits', parameters('appName'))]",
-        "functionAppName": "[concat('func-', 'bitseverywhere-', parameters('appName'), '-bridge')]",
-        "keyVaultName": "[concat('kv-', 'bitseverywhere-', parameters('appName'))]",
+        "functionAppName": "[concat('func-', 'bits-', parameters('appName'), '-bridge')]",
+        "keyVaultName": "[concat('kv-', 'bits-', parameters('appName'))]",
         "iotcKeyName": "iotckey"
     },
     "resources": [
