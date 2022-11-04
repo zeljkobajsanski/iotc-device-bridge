@@ -2,6 +2,9 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+         "appName": {
+            "type": "String"
+        },
         "scopeID": {
             "type": "String"
         },
@@ -10,10 +13,10 @@
         }
     },
     "variables": {
-        "planName": "[concat('iotc-pln', uniqueString(resourceGroup().id))]",
-        "storageName": "[concat('iotcsa', uniqueString(resourceGroup().id))]",
-        "functionAppName": "[concat('iotc-fn', uniqueString(resourceGroup().id))]",
-        "keyVaultName": "[concat('iotcvlt', uniqueString(resourceGroup().id))]",
+        "planName": "[concat('plan-', parameters('appName'))]",
+        "storageName": "[concat('st', 'bitseverywhere', parameters('appName'))]",
+        "functionAppName": "[concat('func-', 'bitseverywhere-', parameters('appName'), '-bridge')]",
+        "keyVaultName": "[concat('kv-', 'bitseverywhere-', parameters('appName'))]",
         "iotcKeyName": "iotckey"
     },
     "resources": [
@@ -79,7 +82,7 @@
                         "[concat('Microsoft.Web/sites/', variables('functionAppName'))]"
                     ],
                     "properties": {
-                        "packageUri": "https://raw.githubusercontent.com/Azure/iotc-device-bridge/master/iotc-bridge-az-function.zip"
+                        "packageUri": "https://raw.githubusercontent.com/zeljkobajsanski/iotc-device-bridge/master/iotc-bridge-az-function.zip"
                     }
                 }
             ],
